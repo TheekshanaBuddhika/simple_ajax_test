@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1 id="hi">Hello Ajax</h1>
+    <p>Let's implement Ajax with XMLHttpReuest object</p>
+    <button id="btn" type="button">Click me</button>
+
+<script src="js/code.jquery.com_jquery-3.7.1.min.js"></script>
+<script>
+    $('#btn').click(function () {
+
+        let xhr = new XMLHttpRequest();
+        console.log(xhr.readyState,"After creating xmlhttp request");
+
+        xhr.open("GET","data/data.json");
+        console.log(xhr.readyState,"After opening  request");
+
+        xhr.addEventListener("readystatechange",()=>{
+            console.log(xhr.readyState,"ready state is changed");
+            if(xhr.readyState===4 && xhr.status === 200){
+                console.log(xhr.responseText);
+               let div = $('<div>');
+               div.text(xhr.responseText);
+               $('body').append(div);
+            }
+        });
+
+        xhr.send();
+        console.log(xhr.readyState,"After sending  request");
+
+    });
+
+</script>
+</body>
+</html>
