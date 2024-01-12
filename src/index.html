@@ -8,6 +8,7 @@
     <h1 id="hi">Hello Ajax</h1>
     <p>Let's implement Ajax with XMLHttpReuest object</p>
     <button id="btn" type="button">Click me</button>
+    <button id="btn2" type="button">Click me 2</button>
 
 <script src="js/code.jquery.com_jquery-3.7.1.min.js"></script>
 <script>
@@ -31,6 +32,25 @@
 
         xhr.send();
         console.log(xhr.readyState,"After sending  request");
+
+    });
+
+    //with Jquery
+
+    $('#btn2').click(function () {
+       $.ajax({
+           url: "data/data.json",
+           method : "get",
+           /*async:false,*/
+           success : function (response){
+               //return as a object
+               console.log("response"+response);
+               console.log("response"+response.id);
+           },
+           error : function (error){
+               console.log("error"+error);
+           }
+       });
 
     });
 
