@@ -42,10 +42,13 @@
            url: "data/data.json",
            method : "get",
            /*async:false,*/
-           success : function (response){
+           success : function (response ,jqxhr , textStatus ){
                //return as a object
                console.log("response"+response);
                console.log("response"+response.id);
+               console.log("jqxhr"+jqxhr);
+               console.log("textStatus"+textStatus);
+
            },
            error : function (jqxhr , textStatus , error ){
                console.log("error"+error);
